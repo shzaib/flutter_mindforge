@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +17,7 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               height: 200,
               width: 200,
-              margin: const EdgeInsets.only(top: 198),
+              margin: const EdgeInsets.only(top: 18),
               child: const Image(image: AssetImage('assets/logo.png')),
             ),
           ),
