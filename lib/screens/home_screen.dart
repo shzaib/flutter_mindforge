@@ -1,6 +1,10 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:flutter/material.dart';
+import 'package:mindforge/constants/constants.dart';
 import 'package:mindforge/models/question_model.dart';
 import 'package:mindforge/widgets/next_button.dart';
+import 'package:mindforge/widgets/option_card.dart';
 import 'package:mindforge/widgets/question_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,6 +28,13 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
   int index = 0;
+  bool isPressed = false;
+  void changeColor() {
+    setState(() {
+      isPressed = true;
+    });
+  }
+
   void nextQuestion() {
     if (index == questions.length - 1) {
       return;
@@ -31,6 +42,7 @@ class _HomePageState extends State<HomePage> {
       setState(
         () {
           index++;
+          isPressed = false;
         },
       );
     }
@@ -63,7 +75,20 @@ class _HomePageState extends State<HomePage> {
                     totalQuestion: questions.length),
                 const Divider(
                   color: Colors.black54,
-                )
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                for (int i = 0; i < questions[index].options.length; i++)
+                  OptionsCard(
+                    option: questions[index].options.keys.toList()[i],
+                    color: isPressed
+                        ? questions[index].options.keys.toList()[i] == true
+                            ? correct
+                            : incorrect
+                        : neutral,
+                    onTap: changeColor,
+                  ),
               ],
             ),
           ),
