@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({super.key, required this.nextQuestion});
@@ -11,10 +12,12 @@ class NextButton extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
             color: Colors.black87, borderRadius: BorderRadius.circular(10)),
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: const Text(
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+        child: Text(
           "Next Question",
-          selectionColor: Colors.white,
+          style: GoogleFonts.poppins(
+            color : Colors.white
+          ),
           textAlign: TextAlign.center,
         ),
       ),

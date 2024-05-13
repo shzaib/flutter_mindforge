@@ -49,6 +49,9 @@ class _HomePageState extends State<HomePage> {
               child: const Image(image: AssetImage('assets/logo.png')),
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -67,7 +70,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.only(left: 12, right: 12),
         child: NextButton(
           nextQuestion: nextQuestion,
         ),

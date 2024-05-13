@@ -14,11 +14,12 @@ class QuestionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(left: 5, right: 5),
       alignment: Alignment.centerLeft,
       child: Text(
         'Question ${indexAction + 1}/$totalQuestion : $questions',
         style: GoogleFonts.poppins(
-          fontSize: 24,
+          fontSize: 18,
           color: Colors.black87,
         ),
       ),
