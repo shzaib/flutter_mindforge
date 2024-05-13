@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mindforge/models/question_model.dart';
+import 'package:mindforge/widgets/next_button.dart';
 import 'package:mindforge/widgets/question_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,6 +24,18 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
   int index = 0;
+  void nextQuestion() {
+    if (index == questions.length - 1) {
+      return;
+    } else {
+      setState(
+        () {
+          index++;
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +66,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: NextButton(
+          nextQuestion: nextQuestion,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
